@@ -7,6 +7,7 @@ Stable Diffusionというオープンソースの画像生成AIをDiscordで使�
 <br>
 <br>
 - .envファイルを作成し、以下を記述してください。
+
 ```
 API_TOKEN=<Hugging Faceのアクセストークン>
 DISCORD_TOKEN=<Discordのアクセストークン>
