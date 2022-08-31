@@ -21,6 +21,7 @@ def generate(prompt):
   with autocast(DEVICE):
     image = pipe(translated, guidance_scale=7.5)["sample"][0]
     image.save("test.png")
-  del pipe,image,translated,
+  del pipe,image
   gc.collect()
+  return translated
 
