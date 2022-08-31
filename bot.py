@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+import gc
 from StableDiffusionModel import generate
 
 load_dotenv()
@@ -19,8 +20,9 @@ bot = commands.Bot(
 @bot.command()
 async def create(ctx, *, prompt):
     msg = await ctx.send(f"“{prompt}”\n 生成中・・・")
-    image = generate(prompt=prompt)
+    generate(prompt=prompt)
     await msg.edit(content=f"“{prompt}”\n生成が完了しました")
     await ctx.send(file=discord.File("./test.png"))
+    gc.collect()
 
 bot.run(os.environ["DISCORD_TOKEN"])

@@ -1,14 +1,13 @@
 from cgitb import reset
-import sys
 import os
 import torch
 from diffusers import StableDiffusionPipeline
 from torch import autocast
 from dotenv import load_dotenv
 from transformers import pipeline
+import gc
 load_dotenv()
  
-args = sys.argv
 MODEL_ID = "CompVis/stable-diffusion-v1-4"
 DEVICE = "cuda"
 YOUR_TOKEN = os.environ.get("API_TOKEN")
@@ -21,6 +20,7 @@ def generate(prompt):
   print(translated)
   with autocast(DEVICE):
     image = pipe(translated, guidance_scale=7.5)["sample"][0]
-    result = image.save("test.png")
-    return result
+    image.save("test.png")
+  del pipe,image,translated,
+  gc.collect()
 
