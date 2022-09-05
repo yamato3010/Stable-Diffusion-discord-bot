@@ -16,12 +16,12 @@ translator = pipeline('translation', model='staka/fugumt-ja-en')
 def generate(prompt):
   pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, revision="fp16", torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN)
   pipe.to(DEVICE)
-  translated = translator(prompt)[0]['translation_text']
-  print(translated)
+  # translated = translator(prompt)[0]['translation_text']
+  print(prompt)
   with autocast(DEVICE):
-    image = pipe(translated, guidance_scale=7.5)["sample"][0]
+    image = pipe(prompt, guidance_scale=7.5)["sample"][0]
     image.save("test.png")
   del pipe,image
   gc.collect()
-  return translated
+  return prompt
 
