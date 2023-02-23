@@ -6,7 +6,7 @@ This is a BOT to enable the open source image generation AI called Stable Diffus
 I actually ran it on a friend's Discord server.  
 
 ## Demo
-[discordのスクリーンショット](https://user-images.githubusercontent.com/75778273/220875327-68f7b4a1-af0f-49c9-88d4-7d1c7652068f.png)
+![discordのスクリーンショット](https://user-images.githubusercontent.com/75778273/220875327-68f7b4a1-af0f-49c9-88d4-7d1c7652068f.png)
 
 ## Install
 - PyTorch、Transformers、Diffusersをインストールします。  
